@@ -38,7 +38,6 @@ int main(void)
     }
     printf("다음 문장을 그대로 입력하세요.\n%s\n", text);
     time(&start_time); // 시작 시간
-    printf("\n%.f\n", start_time);
 
     while ((nread=read(fd, &ch, 1)) > 0 && ch != '\n') {
         if (ch == text[cnt++])
@@ -49,7 +48,6 @@ int main(void)
         }
     }
     time(&end_time); // 종료 시간
-    printf("\n%.f", (float)(end_time - start_time));
 
     printf("\n타이핑 오류의 횟수는 %d\n", errcnt);
     printf("분당 타자수는 : %.f\n", (float)(strlen(text)) / ((float)(end_time - start_time)) * 60.0);
